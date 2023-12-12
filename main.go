@@ -3,8 +3,17 @@ package main
 import (
 	"fmt"
 	"github.com/m1ker1n/greetings"
+	"log"
 )
 
 func main() {
-	fmt.Println(greetings.Hello("Igor"))
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	msg, err := greetings.Hello("")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(msg)
 }
